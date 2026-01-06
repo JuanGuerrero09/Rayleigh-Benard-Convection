@@ -1,0 +1,9 @@
+\documentclass[preview]{standalone}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\begin{align*}
+\frac{\rho_{i,j}^{n+1}-\rho_{i,j}^{n}}{\Delta t}+u_{i,j}\frac{\rho_{i+1,j}^{n+1}-\rho_{i-1,j}^{n+1}}{2\Delta x}+ v_{i,j}\frac{\rho_{i,j+1}^{n+1}-\rho_{i,j-1}^{n+1}}{2\Delta y}=\frac{1}{Pe}\left[\frac{\rho_{i+1,j}^{n+1}-2\rho_{i,j}^{n+1}+\rho_{i-1,j}^{n+1}}{\Delta x^{2}}+\frac{\rho_{i,j+1}^{n+1}-2\rho_{i,j}^{n+1}+\rho_{i,j-1}^{n+1}}{\Delta y^{2}}\right]
+\end{align*}
+\end{document}

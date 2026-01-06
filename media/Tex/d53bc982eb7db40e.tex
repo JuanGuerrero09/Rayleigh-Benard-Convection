@@ -1,0 +1,9 @@
+\documentclass[preview]{standalone}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\begin{align*}
+\frac{v_{i,j}^{*}-v_{i,j}^{n}}{\Delta t}+u_{i,j}^{n}\frac{v_{i+1,j}^{*}-v_{i-1,j}^{*}}{2\Delta x}+ v_{i,j}^{n}\frac{v_{i,j+1}^{*}-v_{i,j-1}^{*}}{2\Delta y}=-\,\frac{p_{i+1,j}^{n}-p_{i-1,j}^{n}}{2\Delta x}+\frac{1}{Re}\left[\frac{v_{i+1,j}^{*}-2v_{i,j}^{*}+v_{i-1,j}^{*}}{\Delta x^{2}}+\frac{v_{i,j+1}^{*}-2v_{i,j}^{*}+v_{i,j-1}^{*}}{\Delta y^{2}}\right]+\rho^{n-1}g
+\end{align*}
+\end{document}
