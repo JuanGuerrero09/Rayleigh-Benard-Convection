@@ -64,17 +64,19 @@ The **SIMPLE** (Semi-Implicit Method for Pressure-Linked Equations) algorithm is
 
 ### Step 1: Solving the Scalar (Temperature/Density)
 
-The energy equation is solved first to obtain the temperature field $\theta^{n+1}$. In a discretized 2D grid (indices $i, j$), the advection-diffusion equation is written as a linear system:$$A_P \theta_{i,j} = A_E \theta_{i+1,j} + A_W \theta_{i-1,j} + A_N \theta_{i,j+1} + A_S \theta_{i,j-1} + b_\theta$$
+The energy equation is solved first to obtain the temperature field $\theta^{n+1}$. In a discretized 2D grid (indices $i, j$), the advection-diffusion equation is written as a linear system:
+
+$$A_P \theta_{i,j} = A_E \theta_{i+1,j} + A_W \theta_{i-1,j} + A_N \theta_{i,j+1} + A_S \theta_{i,j-1} + b_\theta$$
 
 This forms a **Pentadiagonal Matrix** $A_\theta \Theta = B_\theta$, which can be solved using solvers like TDMA or Conjugate Gradient.
 
 ### Step 2: The Predictor Step (Momentum)
 
-Using the pressure from the previous time step ($p^n$), we solve the momentum equations to find **intermediate velocities** ($u^*, v^*$):
+Using the pressure from the previous time step ($p^n$), we solve the momentum equations to find **intermediate velocities** ($u^{*}, v^{*}$):
 
-$$A_P^u u^*_{i,j} = \sum A_{nb} u^*_{nb} + b_u - \left( \frac{p_{i+1,j}^n - p_{i-1,j}^n}{2\Delta x} \right)$$
+$$A_P^u u^*_{i,j} = \sum A_{nb} u^*_{nb} + b_u - ( \frac{p_{i+1,j}^n - p_{i-1,j}^n}{2\Delta x})$$
 
-**Crucial:** These intermediate velocities $u^*, v^*$ do **not** satisfy the continuity equation ($\nabla \cdot \mathbf{u}^* \neq 0$).
+**Crucial:** These intermediate velocities $u^{*}, v^{*}$ do **not** satisfy the continuity equation ($\nabla \cdot \mathbf{u}^{*} \neq 0$).
 
 ### Step 3: Pressure Correction Equation
 
